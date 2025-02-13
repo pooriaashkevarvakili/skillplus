@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: your_password_here
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  auth_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: auth_user
+      POSTGRES_DB: auth_db
+      POSTGRES_PASSWORD: auth_password
+    ports:
+      - 5433:5432
+    volumes:
+      - auth_pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: DATABASE_URL="postgresql://postgres:admin@localhost:5432/postgres"
+  auth_pgdata: DATABASE_URL="postgresql://auth_user:auth_password@localhost:5433/auth_db"
+
+networks:
+  default:
+    name: prisma_network
