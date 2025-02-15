@@ -1,15 +1,29 @@
-{  
-  "titleOne":"مهارت نرم برای مهاجرت",
-  "imgOne":"https://s32.picofile.com/file/8481260926/airplane.png",
-  
-  "titleTwo":"جلسات مصاحبه",
-  "imgTwo":"https://s32.picofile.com/file/8481261042/judge.png",
-  "titleThree":"سخنرانی وارائه ها",
-  "imgThree":"https://s32.picofile.com/file/8481261100/presention_chart.png",
-  "titleFour":"کارگاه های آموزشی",
-  "imgFour":"https://s32.picofile.com/file/8481261168/teacher.png",
-  "titleFive":"همایش های بین المللی",
-  "imgFive":"https://s32.picofile.com/file/8481261200/global_refresh.png",
-  "titleSix":"همایش های حضوری",
-  "imgSix":"https://s32.picofile.com/file/8481261226/bank.png"
+{
+  "message": "پیام با موفقیت انجام شد",
+  "data": [
+    {
+      "title": "مهارت نرم برای مهاجرت",
+      "img": "https://s32.picofile.com/file/8481260926/airplane.png"
+    },
+    {
+      "title": "جلسات مصاحبه",
+      "img": "https://s32.picofile.com/file/8481261042/judge.png"
+    },
+    {
+      "title": "سخنرانی وارائه ها",
+      "img": "https://s32.picofile.com/file/8481261100/presention_chart.png"
+    },
+    {
+      "title": "کارگاه های آموزشی",
+      "img": "https://s32.picofile.com/file/8481261168/teacher.png"
+    },
+    {
+      "title": "همایش های بین المللی",
+      "img": "https://s32.picofile.com/file/8481261200/global_refresh.png"
+    },
+    {
+      "title": "همایش های حضوری",
+      "img": "https://s32.picofile.com/file/8481261226/bank.png"
+    }
+  ]
 }

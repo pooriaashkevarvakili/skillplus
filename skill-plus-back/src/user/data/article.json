@@ -1,8 +1,17 @@
 {
-    "titleOne":"منظور از مقاله کنفرانسی چیست؟",
-    "imgOne":"https://s32.picofile.com/file/8481286392/image_19.png",
-    "imgTwo":"https://s32.picofile.com/file/8481286434/image_21.png",
-    "titleTwo":"چگونه یک ارائه و سخنرانی موثر داشته باشیم؟",
-    "imgThree":"https://s32.picofile.com/file/8481286500/image_20.png",
-    "titleThree":"چگونه بهترین پکیج را برای سفارش خود انتخاب کنیم؟"
+    "message": "پیام با موفقیت انجام شد",
+    "data": [
+        {
+            "img": "https://s32.picofile.com/file/8481286392/image_19.png",
+            "title": "منظور از مقاله کنفرانسی چیست؟"
+        },
+        {
+            "img": "https://s32.picofile.com/file/8481286434/image_21.png",
+            "title": "چگونه یک ارائه و سخنرانی موثر داشته باشیم؟"
+        },
+        {
+            "img": "https://s32.picofile.com/file/8481286500/image_20.png",
+            "title": "چگونه بهترین پکیج را برای سفارش خود انتخاب کنیم؟"
+        }
+    ]
 }
