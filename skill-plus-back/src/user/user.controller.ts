@@ -1,5 +1,6 @@
 import { Body, Controller, Get, HttpStatus, Post, Res, UseGuards, UseInterceptors } from '@nestjs/common';
-import { AppService } from './app.service';
+import { UserService } from './user.service';
+
 import data from './data/maharatNarm.json';
 import dataOne from './data/learnOnline.json'
 import dataTwo from './data/call.json'
@@ -14,20 +15,20 @@ import dataNine from './data/buyPackyjes.json'
 import dataTen from './data/Trust.json'
 import dataEleven from './data/article.json'
 import dataTwelve from './data/question.json'
-import { NoFilesInterceptor } from '@nestjs/platform-express';
 import dataThreeteen from './data/packages.json'
 import dataFourteen from './data/callAddress.json'
 import {CreateUserDto} from "./dto/create-user.dto"
 import { Response } from 'express';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { ApiResponse } from '@nestjs/swagger';
+import { User } from './entities/user.entity';
 
-import { CurrentUser } from './auth/current-user.decorator';
-import { TokenPayload } from './auth/token-payload.interface';
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService,
-  ) {}
 
+@Controller('user')
+export class UserController {
+  constructor(private readonly userService: UserService) {}
+  
   @Get('featuresMaharatNarm')
   getPaymentMethod(@Res() res: Response): void {
     res.status(HttpStatus.OK).json(data);
@@ -89,11 +90,20 @@ export class AppController {
     res.status(HttpStatus.OK).json(dataFourteen);
   }
  
-  @Get('me')
  
-  getme(@CurrentUser()user:TokenPayload){
- return user
+  
+  @Post('signup')
+  async signup(@Body() createUserDto: CreateUserDto): Promise<User> {
+    try {
+      return await this.userService.create(createUserDto);
+    } catch (error) {
+      console.error('خطا در ثبت‌نام:', error);
+      throw error;
+    }
   }
-   
-
+   @Post('login')
+  
+    login(@Body() request:UpdateUserDto){
+   this.userService.find(request.password,request.email,request.username)
+    }
 }

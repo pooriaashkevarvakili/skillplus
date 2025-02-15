@@ -1,15 +1,18 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { User } from "@prisma/client"
-import { IsOptional } from "class-validator"
+export class CreateUserDto {
 
-export class UpdateUserDto implements Partial<User>  {
-    @IsOptional()
-    id:number
-    @IsOptional()
+    id: number
+
     @ApiProperty({ example: '', description: '' })
     email: string
+
+    @ApiProperty({ example: '', description: '' })
+    family: string
     @ApiProperty({ example: '', description: '' })
     password: string
     @ApiProperty({ example: '', description: '' })
-    username:string
+
+    name: string
+    @ApiProperty({ example: '', description: '' })
+    username: string
 }
