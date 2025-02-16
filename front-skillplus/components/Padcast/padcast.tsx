@@ -1,14 +1,17 @@
-import UserImage from "@/public/Images/user.png"
-import Image from "next/image"
+import UserImage from "@/public/Images/user.png";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import instance from "@/axios/axios";
-interface users{
-    titleOne:string;
-    titleTwo:string;
-    img:string;
+
+interface Users {
+    titleOne: string;
+    titleTwo: string;
+    img: string;
 }
-export default function Padcast() {
-    const [users, setUsers] = useState<users|null>(null);
+
+export default function Podcast() {
+    const [users, setUsers] = useState<Users | null>(null);
+
     useEffect(() => {
         instance.get('/padcast')
             .then(response => {
@@ -19,27 +22,31 @@ export default function Padcast() {
                 console.error('Error fetching users:', error);
             });
     }, []);
+
     return (
-        <div dir="rtl" className="xl:flex laptopmini:block xlg:block  laptop:block lg:mr-20 md:mr-10  xl:mr-20 mt-10 sm:mr-32">
-
-
-            <div className="p-2 space-y-3 ">
-                <div className="text-[32px] yekan-bold">{users?.titleOne}</div>
-                <div>
-                    <p className="text-justify text-sm text-[#5B5B5B] sm:w-[30rem] md:w-[43rem] xl:w-[40rem] laptop:w-[40rem] lg:w-[50rem] lgg:w-[50rem] laptopmini:w-[40rem] xlg:w-[10rem]">
-
-                        {users?.titleTwo}
-                    </p>
-
+        <div dir="rtl" className="flex flex-col xl:flex-row items-center xl:items-start justify-center xl:justify-between p-4 xl:p-10 space-y-6 xl:space-y-0 xl:space-x-6">
+            <div className="space-y-4 max-w-xl">
+                <div className="text-3xl xl:text-4xl font-bold yekan-bold">
+                    {users?.titleOne}
                 </div>
-                <button style={{ borderRadius: "40px" }} className="bg-[#EE2556] yekan-bold text-sm w-[300px] h-[54px] mr-48 text-center text-white">
-لینک گوش دادن به پادکست
-
+                <p className="text-justify text-sm text-[#5B5B5B]">
+                    {users?.titleTwo}
+                </p>
+                <button 
+                    style={{ borderRadius: "40px" }} 
+                    className="bg-[#EE2556] yekan-bold text-sm w-full xl:w-[300px] h-[54px] text-center text-white"
+                >
+                    لینک گوش دادن به پادکست
                 </button>
             </div>
 
-            <img className="xl:w-[430px] sm:w-[500px] md:w-[700px] lg:w-[800px] xl:h-[371px] mr-10" src={users?.img} alt="user" />
-
+            <div className="w-full xl:w-auto">
+                <img 
+                    className="w-full xl:w-[430px] xl:h-[371px] rounded-lg" 
+                    src={users?.img} 
+                    alt="user" 
+                />
+            </div>
         </div>
-    )
+    );
 }

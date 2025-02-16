@@ -34,7 +34,7 @@ export default function Home() {
     users.name}`);
   return (
   <div>
-{/* <button onClick={notify}>w</button> */}
+
     <Header/>
     <div className="flex mt-3 items-center justify-center">
     <Image className="  xl:block laptop:block laptopmini:block lg:block  hidden xl:w-[1046px] lg:w-[800px] md:w-[800px] laptop:[800px]" src={Tarjome} alt="tarjome"/>
@@ -64,7 +64,7 @@ export default function Home() {
     </div>
     <Article/>
     <Question/>
-    <Packages/>
+  
      <FooterSkillPlus/> 
   </div>
   );

@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
 
 import { ConfigModule } from '@nestjs/config';
+import { MaharatNarm } from './user/entities/MaharatNarm.entites';
+import { MaharatNarmModule } from './maharat-narm/maharat-narm.module';
 @Module({
   imports: [
     
@@ -17,9 +19,10 @@ import { ConfigModule } from '@nestjs/config';
       password:'admin',
       database:'postgres',
       synchronize:true,
-      entities:[User]
+      entities:[User,MaharatNarm]
     }),
-    UserModule
+    UserModule,
+    MaharatNarmModule
   ],
   controllers: [AppController],
   providers: [AppService],
