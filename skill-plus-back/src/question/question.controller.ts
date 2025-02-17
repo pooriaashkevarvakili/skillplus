@@ -3,7 +3,7 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 import { QuastionSerivce } from './question.service';
 import {question} from './entities/question.entity';
 
-@Controller('quastion')
+@Controller('question')
 export class QuastionController {
   constructor(private readonly QuastionSerivce: QuastionSerivce) {}
 

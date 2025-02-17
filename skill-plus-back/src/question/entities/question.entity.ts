@@ -8,6 +8,6 @@ export class question {
   @Column()
   title: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
 }

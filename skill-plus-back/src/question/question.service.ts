@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { question } from '../question/entities/question.entity';
-interface MaharatNarmData {
+interface questionInterface {
     title: string;
     description: string;
   }
@@ -11,15 +11,15 @@ interface MaharatNarmData {
 export class QuastionSerivce {
   constructor(
     @InjectRepository(question)
-    private readonly maharatNarmRepository: Repository<question>,
+    private readonly questionRepository: Repository<question>,
   ) {}
 
   async findAll(): Promise<question[]> {
-    return await this.maharatNarmRepository.find();
+    return await this.questionRepository.find();
   }
 
   async create(maharatNarm: question): Promise<question> {
-    return await this.maharatNarmRepository.save(maharatNarm);
+    return await this.questionRepository.save(maharatNarm);
   }
 
   async saveData(): Promise<{ message: string; data: question[] }> {
@@ -37,7 +37,7 @@ export class QuastionSerivce {
       {
           title: "آیا مکمل آموزشی وجود دارد مثل کتاب و فیلم و...؟"
       }
-      ]as MaharatNarmData[]
+      ]as questionInterface[]
     };
     try {
         const savedItems = await Promise.all(
