@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
-
 import { ConfigModule } from '@nestjs/config';
 import { MaharatNarm } from './user/entities/MaharatNarm.entites';
+import { question } from './question/entities/question.entity';
 import { MaharatNarmModule } from './maharat-narm/maharat-narm.module';
+import { QuestionModule } from './question/question.module';
 @Module({
   imports: [
     
@@ -19,10 +20,11 @@ import { MaharatNarmModule } from './maharat-narm/maharat-narm.module';
       password:'admin',
       database:'postgres',
       synchronize:true,
-      entities:[User,MaharatNarm]
+      entities:[User,MaharatNarm,question]
     }),
     UserModule,
-    MaharatNarmModule
+    MaharatNarmModule,
+    QuestionModule
   ],
   controllers: [AppController],
   providers: [AppService],
