@@ -4,21 +4,21 @@ import instance from "@/axios/axios";
 import { useRouter } from "next/navigation";
 import { FaEye } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
-
+import axios from "axios";
 interface FormErrors {
   email: string;
   password: string;
   name: string;
   family: string;
   username: string;
-  phoneNumber: string;
+
 }
 
 export default function Signup() {
   const [isStarMode, setIsStarMode] = useState(true);
   const [name, setName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [phoneNumber, setPhoneNumber] = useState("");
+
   const [username, setUsername] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [loginStatus, setLoginStatus] = useState(null);
@@ -32,7 +32,7 @@ export default function Signup() {
     name: '',
     family: '',
     username: '',
-    phoneNumber: ''
+ 
   });
 
   const validateField = (fieldName: keyof FormErrors, value: string): string => {
@@ -54,8 +54,7 @@ export default function Signup() {
         return !value ? 'نام خانوادگی را وارد کنید' : '';
       case 'username':
         return !value ? 'نام کاربری را وارد کنید' : '';
-      case 'phoneNumber':
-        return !value ? 'شماره موبایل را وارد کنید' : '';
+     
       default:
         return '';
     }
@@ -74,29 +73,7 @@ export default function Signup() {
     }));
   };
 
-  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    setPhoneNumber(inputValue);
-    const isValid = /^09\d{9}$/.test(inputValue);
-    setIsValidPhoneNumber(isValid);
-    const error = validateField('phoneNumber', inputValue);
-    setErrors(prev => ({
-      ...prev,
-      phoneNumber: error
-    }));
-
-    if (inputValue.length > 0) {
-      if (isValid) {
-        setInputColor(loginStatus === "success"
-          ? "text-[#00996A] dark:text-green-500"
-          : "text-[#00996A]");
-      } else {
-        setInputColor("text-[#B11932]");
-      }
-    } else {
-      setInputColor("text-gray-400 dark:text-gray-400");
-    }
-  };
+ 
 
   const [icon, setIcon] = useState(FaEye);
   const handleToggle = () => {
@@ -112,48 +89,45 @@ export default function Signup() {
 
   const router = useRouter();
 
-  const setlogin = () => {
-    let hasErrors = false;
-    Object.keys(errors).forEach(key => {
-      const error = validateField(key as keyof FormErrors,
-        //@ts-ignore
-        key === 'phoneNumber' ? phoneNumber :
-        key === 'email' ? email :
-        key === 'password' ? password :
-        key === 'name' ? name :
-        key === 'family' ? family :
-        username
-      );
-      
-      if (error) {
-        setErrors(prev => ({
-          ...prev,
-          [key]: error
-        }));
-        hasErrors = true;
-      }
-    });
+const setlogin = () => {
+  let hasErrors = false;
 
-    if (!hasErrors && isValidPhoneNumber) {
-      const data = {
-        name,
-        password,
-        email,
-        username,
-        id,
-        family
-      };
-      
-      instance.post("/signup", { ...data })
-        .then(() => {
-          router.push('/');
-        })
-        .catch((error) => {
-          console.log("Error connecting to server:", error);
-          router.push('/login');
-        });
+  // بررسی خطاها برای همه فیلدها
+  const fieldsToValidate = { email, password, name, family, username };
+  Object.keys(fieldsToValidate).forEach((key) => {
+    const error = validateField(key as keyof FormErrors, fieldsToValidate[key]);
+    if (error) {
+      setErrors((prev) => ({
+        ...prev,
+        [key]: error,
+      }));
+      hasErrors = true;
     }
-  };
+  });
+
+  // اگر خطایی وجود نداشت، درخواست ارسال شود
+  if (!hasErrors) {
+    const data = {
+      email,
+      family,
+      password,
+      name,
+      username,
+    };
+
+    axios
+      .post("http://92.119.57.159:3000/user/signup", data)
+      .then(() => {
+        router.push("/login");
+      })
+      .catch((error) => {
+        console.log("Error connecting to server:", error);
+        router.push("/");
+      });
+  } else {
+    console.log("Validation errors:", errors);
+  }
+};
 
   const [type, setType] = useState("password");
 
@@ -262,28 +236,11 @@ export default function Signup() {
         </div>
 
         {/* شماره موبایل */}
-        <div className="w-[400px] relative top-[5.5rem]">
-          <TextInput
-            value={phoneNumber}
-            onChange={handlePhoneNumberChange}
-            type="tel"
-            pattern="^09\d{9}$"
-            required
-            placeholder="09XXXXXXXXX"
-            className={`w-full focus:ring-[#00996a] ${inputColor} ${
-              errors.phoneNumber ? 'border-red-500' : ''
-            }`}
-            id="mobile1"
-            name="mobile"
-          />
-          {errors.phoneNumber && (
-            <span className="absolute right-0 top-full text-sm text-red-500 mt-1">{errors.phoneNumber}</span>
-          )}
-        </div>
+       
 
         <button
           onClick={setlogin}
-          className="w-[400px] text-white bg-[#EE2556] h-[50px] text-xl yekan-bold rounded-xl mt-32"
+          className="w-[400px] text-white bg-[#EE2556] h-[50px] text-xl yekan-bold rounded-xl mt-20"
           type="submit"
         >
           ثبت نام

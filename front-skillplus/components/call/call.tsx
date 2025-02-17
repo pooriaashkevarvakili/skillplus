@@ -12,7 +12,7 @@ export default function Call(){
           instance.get('/call')
                 .then(response => {
                       setUsers(response.data);
-                      console.log(response.data);
+                  
                 })
                 .catch(error => {
                       console.error('Error fetching users:', error);

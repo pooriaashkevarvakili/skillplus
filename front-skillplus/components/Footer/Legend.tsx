@@ -16,7 +16,7 @@ export default function Legend() {
         instance.get('/callAddress')
             .then(response => {
                 setUsers(response.data);
-                console.log(response.data);
+              
             })
             .catch(error => {
                 console.error('Error fetching users:', error);
