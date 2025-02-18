@@ -1,11 +1,12 @@
 // src/maharat-narm/maharat-narm.controller.ts
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { QuastionSerivce } from './question.service';
+import { QuestionSerivce } from './question.service';
 import {question} from './entities/question.entity';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('question')
 @Controller('question')
 export class QuastionController {
-  constructor(private readonly QuastionSerivce: QuastionSerivce) {}
+  constructor(private readonly QuastionSerivce: QuestionSerivce) {}
 
   @Get()
   async findAll(): Promise<question[]> {

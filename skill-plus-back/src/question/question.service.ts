@@ -8,7 +8,7 @@ interface questionInterface {
     description: string;
   }
 @Injectable()
-export class QuastionSerivce {
+export class QuestionSerivce {
   constructor(
     @InjectRepository(question)
     private readonly questionRepository: Repository<question>,
