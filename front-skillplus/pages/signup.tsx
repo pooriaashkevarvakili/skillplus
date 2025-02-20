@@ -5,11 +5,9 @@ export default function Signup(){
     return(
         <div>
           
-<Header/>
+
 <SignupCompoent/>
-<div className="mt-12">
-<Footer/>
-</div>
+
 
         </div>
         

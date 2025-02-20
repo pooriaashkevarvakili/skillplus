@@ -48,7 +48,7 @@ export default function Home() {
     <User/> 
     <SoftSkillServices/>
     <WebinarLearn/>
-    <VideoLearn/>
+    {/* <VideoLearn/> */}
     <div className="flex mt-8 items-center justify-center">
     <Image className=" xl:block laptop:block laptopmini:block lg:block  hidden xl:w-[1046px] laptop:w-[1046px] w-[800px]" src={Moshaver} alt="tarjome"/>
     <Image className="xl:hidden lg:hidden block w-[1000px]" src={MoshaverMobile} alt="tarjomeOne"/>

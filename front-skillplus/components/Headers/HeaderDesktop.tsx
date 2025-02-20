@@ -11,8 +11,8 @@ export default function HeaderDesktop(){
     <li><Link href="/">صفحه اصلی</Link></li>
     <li><Link href="#">خدمات</Link></li>
     <li><Link href="#">قیمت مشاوره</Link></li>
-    <li><Link href="#">راهنما</Link></li>
-    <li><Link href="#">درباره روانشناسی </Link></li>
+    <li><Link href="#">نمونه کارها</Link></li>
+    <li><Link href="#">درباره سایت </Link></li>
     <li><Link href="#">وبلاگ</Link></li>
     </ul>
     

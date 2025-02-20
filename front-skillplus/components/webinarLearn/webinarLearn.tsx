@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import instance from "@/axios/axios";
+import axios from "axios";
 interface users{
-    img:string;
+    img?:string;
     description:string;
     title:string
 }
 export default function WebinarLearn() {
     const [users, setUsers] = useState<users|null>(null);
     useEffect(() => {
-        instance.get('/webniarLearn')
+        axios.get('http://92.119.57.159:3000/user/webniarLearn')
             .then(response => {
                 setUsers(response.data.data);
             
