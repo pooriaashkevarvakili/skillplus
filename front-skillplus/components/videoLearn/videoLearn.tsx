@@ -60,7 +60,7 @@ export default function videoLearn() {
     return (
         <div>
             <div className="flex items-center text-2xl yekan-bold justify-center">
-                ویدئو های آموزشی
+               نمونه کار
             </div>
             <div className="xl:block xlg:block  laptop:block hidden gap-4 mt-8">
                 <Swiper className="mySwiper"

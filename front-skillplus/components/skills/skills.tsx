@@ -10,7 +10,7 @@ export default function Skills() {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    instance.get('/featuresMaharatNarm')
+    instance.get('/application')
       .then(response => {
         setUsers(response.data.data || []);
       })
@@ -21,8 +21,8 @@ export default function Skills() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold text-center mb-8 yekan-bold">ویژگی مهارت های نرم</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <h2 className="text-2xl font-bold text-center mb-8 yekan-bold">ویژگی های وب کلیک</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
         {users.slice(0, 7).map((user, index) => (
           <div key={index} className="flex flex-col items-center justify-center p-4 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="mb-4">

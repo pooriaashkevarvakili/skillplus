@@ -1,48 +1,52 @@
+import UserImage from "@/public/Images/user.png";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import instance from "@/axios/axios";
-interface users{
-    img:string;
-    titleOne:string;
-    title:string
+import Group from '@/public/Images/Group.png'
+import axios from "axios";
+interface Users {
+    title: string;
+    description: string;
+    img: string;
 }
-export default function Softskillsprogramming() {
-    const [users, setUsers] = useState<users|null>(null);
+
+export default function Podcast() {
+    const [users, setUsers] = useState<Users | null>(null);
+
     useEffect(() => {
-        instance.get('/softSkillProgramming')
+        axios.get('http://92.119.57.159:3000/user/padcast')
             .then(response => {
-                setUsers(response.data);
-                
+                setUsers(response.data.data);
+               
             })
             .catch(error => {
                 console.error('Error fetching users:', error);
             });
     }, []);
+
     return (
-        <div dir="rtl" className="xl:flex laptopmini:block xlg:block  laptop:block lg:mr-20 md:mr-10   xl:mr-20 mt-12 sm:mr-32">
-
-            <img className="xl:w-[472px] laptop:w-[472px] w-[200px] xl:h-[174px]" src={
-                
-                users?.img} alt="user" />
-
-            <div className="p-2 space-y-3">
-                <div className="text-[32px] yekan-bold">{
-                
-                users?.titleOne}</div>
-                <div>
-                    <p className="text-justify text-sm text-[#5B5B5B] xl:w-[40rem] laptop:w-[30rem] lg:w-[30rem] w-[20rem]">
-
-                        {
-                            
-                            users?.title}
-                    </p>
-
+        <div dir="rtl" className="flex flex-col xl:flex-row items-center xl:items-start justify-center xl:justify-between p-4 xl:p-10 space-y-6 xl:space-y-0 xl:space-x-6">
+            <div className="space-y-4 max-w-xl">
+                <div className="text-3xl xl:text-4xl font-bold yekan-bold">
+                    {users && users[0]?.title}
                 </div>
-                <button style={{ borderRadius: "40px" }} className="bg-[#EE2556] yekan-bold text-sm w-[300px] h-[54px] text-center text-white">
-                اطلاعات خود را جهت تماس با مشاوره ثبت کنید
-                </button>
+                <p className="text-justify text-sm text-[#5B5B5B]">
+                    {users && users[0]?.description}
+                </p>
+                <button 
+                    style={{ borderRadius: "40px" }} 
+                    className="bg-[#EE2556] yekan-bold text-sm w-full xl:w-[300px] h-[54px] text-center text-white"
+                >
+اطلاعات خود را جهت تماس با مشاوره ثبت کنید                </button>
             </div>
 
-
+            <div className="w-full xl:w-auto">
+                <Image 
+                    className="w-full xl:w-[430px] xl:h-[371px] rounded-lg" 
+                    src={Group}
+                    alt="user" 
+                />
+            </div>
         </div>
-    )
+    );
 }

@@ -1,0 +1,28 @@
+{
+"message": "پیام با موفقیت انجام شد",
+"data": [
+  {
+    "title": "طراحی سایت خدمات پزشکی",
+    "img": "https://s32.picofile.com/file/8481260926/airplane.png"
+  },
+  {
+    "title": "طراحی سایت خبری",
+    "img": "https://s32.picofile.com/file/8481261042/judge.png"
+  },
+  {
+    "title": " طراحی سایت شرکتی",
+    "img": "https://s32.picofile.com/file/8481261100/presention_chart.png"
+  },
+  {
+    "title": "طراحی سایت آموزشی",
+    "img": "https://s32.picofile.com/file/8481261168/teacher.png"
+  },
+  {
+    "title": "طراحی سایت  فناوری",
+    "img": "https://s32.picofile.com/file/8481261200/global_refresh.png"
+  },
+  {
+    "title": "طراحی سایت کسب کار",
+    "img": "https://s32.picofile.com/file/8481261226/bank.png"
+  }]
+}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken, refreshToken } from './token';
 const instance = axios.create({
-  baseURL: "http://92.119.57.159:3000/user/",
+  baseURL: "http://92.119.57.159:3000/user",
   headers: {
     'Content-Type': 'application/json',
   },

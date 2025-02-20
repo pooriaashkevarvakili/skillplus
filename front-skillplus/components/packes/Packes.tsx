@@ -6,7 +6,7 @@ export default function Packages() {
             <Card className="w-full max-w-[1100px] mx-auto">
                 <div className="flex flex-col xl:flex-row laptop:flex-row justify-between items-start xl:items-center gap-4">
                     <div className="text-[#08BA6D] flex flex-col xl:flex-row laptop:flex-row items-start xl:items-center gap-4">
-                        <span>قیمت پکیج آموزشی یا مشاوره</span>
+                        <span>قیمت  طراحی سایت یا مشاوره</span>
                         <Select
                             id="countries"
                             required

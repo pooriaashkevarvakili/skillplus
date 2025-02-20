@@ -13,7 +13,7 @@ export default function ApplicationMaharatNarm() {
     }
 
     useEffect(() => {
-        instance.get('/applicationMaharatNarm')
+        instance.get('/maharatNarm')
             .then(response => {
                 setUsers(response.data.data);
            
@@ -25,7 +25,7 @@ export default function ApplicationMaharatNarm() {
 
     return (
         <>
-            <div className="flex items-center justify-center text-2xl yekan-bold mt-8">کاربرد مهارت های نرم</div>
+            <div className="flex items-center justify-center text-2xl yekan-bold mt-8"> حوزه های مختلف طراحی سایت</div>
             <div className="flex flex-wrap items-center justify-center gap-12 mt-4 px-4">
                 {users.slice(0, 7).map((user, index) => (
                     <Card key={index} style={boxShadow} className="w-40 h-40">

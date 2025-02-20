@@ -24,7 +24,7 @@ export default function SoftSkillServices() {
   return (
     <div className="container mx-auto px-4 py-12">
       <h2 className="text-2xl text-center font-bold yekan-bold mb-8">
-        انواع خدمات سایت مهارت نرم
+        انواع خدمات سایت وب کلیک
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {users.slice(0, 2).map((user, index) => (

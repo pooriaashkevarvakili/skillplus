@@ -2,17 +2,18 @@ import UserImage from "@/public/Images/user.png"
 import Image from "next/image"
 import { useState, useEffect } from "react";
 import instance from "@/axios/axios";
+import Group from "@/public/Images/Group.png"
 interface users{
-    titleOne:string;
     title:string;
+    description:string;
     img:string
 }
 export default function PersonConsultations() {
     const [users, setUsers] = useState<users|null>(null);
     useEffect(() => {
-        instance.get('/personconsultations')
+        instance.get('/personConsulations')
             .then(response => {
-                setUsers(response.data);
+                setUsers(response.data.data);
                 
             })
             .catch(error => {
@@ -24,11 +25,11 @@ export default function PersonConsultations() {
 
 
             <div className="p-2 space-y-3">
-                <div className="text-[32px] yekan-bold">{users?.titleOne}</div>
+                <div className="text-[32px] yekan-bold">{users && users[0]?.title}</div>
                 <div>
                     <p className="text-justify text-sm   text-[#5B5B5B] sm:w-[30rem] md:w-[43rem] xl:w-[36rem] laptop:w-[40rem] lg:w-[50rem] lgg:w-[50rem] laptopmini:w-[40rem] xlg:w-[10rem]">
 
-                        {users?.title}
+                        {users && users[0]?.description}
                     </p>
 
                 </div>
@@ -37,7 +38,7 @@ export default function PersonConsultations() {
                 </button>
             </div>
            <div>
-           <img className="xl:w-[400px] laptop:w-[400px] xlg:w-[400px] w-[300px] xl:h-[371px]" src={users?.img} alt="user" />
+           <Image className="xl:w-[400px] laptop:w-[400px] xlg:w-[400px] w-[300px] xl:h-[371px]" src={Group} alt="user" />
            </div>
             
 

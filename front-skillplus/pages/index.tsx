@@ -42,30 +42,23 @@ export default function Home() {
     </div>
     <Skills/>
     <Call/>
-    <User/>
     <Packes/>
     <ApplicationMaharatNarm/>
-    <PersonConsultations/>
     <Softskillsprogramming/>
+    <User/> 
     <SoftSkillServices/>
-    <Padcast/>
-    <Call/>
     <WebinarLearn/>
     <VideoLearn/>
-    
     <div className="flex mt-8 items-center justify-center">
     <Image className=" xl:block laptop:block laptopmini:block lg:block  hidden xl:w-[1046px] laptop:w-[1046px] w-[800px]" src={Moshaver} alt="tarjome"/>
     <Image className="xl:hidden lg:hidden block w-[1000px]" src={MoshaverMobile} alt="tarjomeOne"/>
     </div>
-  
     <div className="flex mt-10 items-center justify-center">
     <Image className="xl:w-[1046px] xl:block laptopmini:block laptopmini:w-[1046px]  laptop:block relative xl:right-0 laptop:right-0 xlg:right-0 lgg:right-0 lg:-right-[50px] laptop:w-[1046px] xlg:block xlg:w-[1046px] lg:block hidden  w-[800px]" src={Mask} alt="tarjome"/>
     <Image className="xl:hidden laptopmini:hidden  laptop:hidden xlg:hidden lg:w-[1200px] lg:hidden  sm:block smone:block md:block " src={MaskMobile} alt="tarjomeOne"/>
     </div>
-    <Article/>
     <Question/>
-  
-     <FooterSkillPlus/> 
+     <FooterSkillPlus/>  
   </div>
   );
 }
